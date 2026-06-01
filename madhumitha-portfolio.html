@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhumitha S — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-deep: #0a2463;
+    --blue-mid: #1e5fd6;
+    --blue-light: #4a90e2;
+    --blue-pale: #e8f1fd;
+    --blue-accent: #00b4d8;
+    --white: #ffffff;
+    --off-white: #f7faff;
+    --text-dark: #0d1b2a;
+    --text-mid: #3a5068;
+    --text-light: #7a99b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,95,214,0.1);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--blue-deep);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--blue-mid); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue-mid); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--blue-deep) 0%, #1a3a7a 50%, var(--blue-mid) 100%);
+    display: flex; align-items: center;
+    padding: 80px 5% 0;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -50px; left: 10%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, transparent 70%);
+  }
+  .hero-content { max-width: 700px; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(0,180,216,0.2);
+    border: 1px solid rgba(0,180,216,0.4);
+    color: #7dd3f8;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 20px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--blue-accent); }
+  .hero-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,0.7);
+    line-height: 1.7; margin-bottom: 2rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+    max-width: 560px;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 0.82rem; font-weight: 500;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--blue-accent); color: var(--white);
+    padding: 12px 28px; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,180,216,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,180,216,0.5); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 12px 28px; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+
+  .hero-stats {
+    position: absolute; bottom: 50px; right: 5%;
+    display: flex; gap: 2.5rem;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--white);
+  }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* SECTIONS */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--blue-mid);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700; color: var(--blue-deep);
+    margin-bottom: 3rem; line-height: 1.2;
+  }
+  .section-title span { color: var(--blue-mid); }
+
+  /* ABOUT */
+  .about { background: var(--off-white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .about-text p {
+    color: var(--text-mid); line-height: 1.8;
+    margin-bottom: 1rem; font-size: 1rem;
+  }
+  .about-highlights {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 2rem;
+  }
+  .highlight-card {
+    background: var(--white);
+    border: 1px solid rgba(30,95,214,0.1);
+    border-radius: 12px; padding: 1.2rem;
+    border-left: 3px solid var(--blue-mid);
+  }
+  .highlight-card h4 { color: var(--blue-deep); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .highlight-card p { color: var(--text-light); font-size: 0.82rem; line-height: 1.5; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-category {
+    background: var(--off-white);
+    border-radius: 16px; padding: 1.8rem;
+    border: 1px solid rgba(30,95,214,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-category:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(30,95,214,0.1); }
+  .skill-category-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: 1rem;
+  }
+  .skill-category h3 { color: var(--blue-deep); font-size: 1rem; font-weight: 600; margin-bottom: 1rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: var(--blue-pale); color: var(--blue-mid);
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .experience { background: var(--off-white); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--blue-mid), var(--blue-pale));
+  }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-dot {
+    position: absolute; left: -2.45rem; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--blue-mid);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--blue-mid);
+  }
+  .timeline-card {
+    background: var(--white); border-radius: 12px;
+    padding: 1.5rem; border: 1px solid rgba(30,95,214,0.1);
+    transition: box-shadow 0.2s;
+  }
+  .timeline-card:hover { box-shadow: 0 8px 30px rgba(30,95,214,0.1); }
+  .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .timeline-role { font-weight: 700; color: var(--blue-deep); font-size: 1rem; }
+  .timeline-company { color: var(--blue-mid); font-weight: 600; font-size: 0.9rem; }
+  .timeline-date {
+    background: var(--blue-pale); color: var(--blue-mid);
+    padding: 3px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+  }
+  .timeline-desc { color: var(--text-mid); font-size: 0.88rem; line-height: 1.6; margin-top: 0.5rem; }
+  .timeline-skill-tag {
+    display: inline-block; margin-top: 0.6rem;
+    background: rgba(30,95,214,0.08); color: var(--blue-mid);
+    padding: 3px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .edu-card {
+    background: var(--off-white); border-radius: 16px;
+    padding: 1.8rem; border: 1px solid rgba(30,95,214,0.1);
+    position: relative; overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .edu-card:hover { transform: translateY(-3px); }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: linear-gradient(90deg, var(--blue-mid), var(--blue-accent));
+  }
+  .edu-degree { font-weight: 700; color: var(--blue-deep); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .edu-school { color: var(--blue-mid); font-weight: 600; font-size: 0.88rem; margin-bottom: 0.5rem; }
+  .edu-year { color: var(--text-light); font-size: 0.82rem; margin-bottom: 0.8rem; }
+  .edu-grade {
+    display: inline-block;
+    background: var(--blue-pale); color: var(--blue-deep);
+    padding: 4px 14px; border-radius: 20px;
+    font-size: 0.82rem; font-weight: 700;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: linear-gradient(135deg, var(--blue-deep) 0%, #1a3a7a 100%);
+    text-align: center;
+  }
+  .contact .section-label { color: var(--blue-accent); }
+  .contact .section-title { color: var(--white); margin-bottom: 1rem; }
+  .contact-sub { color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; font-size: 1rem; }
+  .contact-links {
+    display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white); text-decoration: none;
+    padding: 12px 22px; border-radius: 10px;
+    font-size: 0.9rem; font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+  /* ACHIEVEMENTS */
+  .achievements { background: var(--off-white); }
+  .achievements-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .achievement-card {
+    background: var(--white); border-radius: 16px;
+    padding: 1.8rem; border: 1px solid rgba(30,95,214,0.1);
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .achievement-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(30,95,214,0.12); }
+  .achievement-card.gold { border-left: 4px solid #f5a623; }
+  .achievement-card.blue { border-left: 4px solid var(--blue-mid); }
+  .achievement-card.teal { border-left: 4px solid var(--blue-accent); }
+  .achievement-icon {
+    font-size: 2rem; flex-shrink: 0;
+    width: 52px; height: 52px;
+    background: var(--blue-pale); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .achievement-body h4 { color: var(--blue-deep); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .achievement-body p { color: var(--text-mid); font-size: 0.83rem; line-height: 1.5; }
+  .achievement-tag {
+    display: inline-block; margin-top: 0.6rem;
+    background: var(--blue-pale); color: var(--blue-mid);
+    padding: 3px 10px; border-radius: 6px; font-size: 0.76rem; font-weight: 600;
+  }
+  .achievement-tag.gold-tag { background: #fff8e7; color: #b07d0a; }
+
+  /* FOOTER */
+  footer {
+    background: var(--blue-deep); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.82rem; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { position: static; margin-top: 2rem; padding: 2rem 5% 3rem; }
+    .hero { flex-direction: column; padding-bottom: 0; }
+    nav .nav-links { display: none; }
+    .about-highlights { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Madhu<span>mitha</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">✦ Open to Work</div>
+    <h1>Madhumitha <span>S</span></h1>
+    <p class="hero-sub">B.E Electronics & Communication Engineer · IoT Developer · Full-Stack Web Developer · Power BI Analyst</p>
+    <div class="hero-badges">
+      <span class="badge">🎓 9.24 CGPA</span>
+      <span class="badge">⚡ NxtWave CCBP 4.0</span>
+      <span class="badge">📡 IEEE Member</span>
+      <span class="badge">✍️ Published Author</span>
+      <span class="badge">🌐 500+ Connections</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="https://github.com/Madhumitha1366" target="_blank" class="btn-outline">GitHub →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Internships</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">9.24</div>
+      <div class="stat-label">CGPA</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Connections</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="reveal">
+    <div class="section-label">Who I Am</div>
+    <div class="section-title">About <span>Me</span></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm Madhumitha S, a fresh B.E Electronics and Communication Engineering graduate from K.S.Rangasamy College of Technology with a strong academic record of <strong>9.24 CGPA</strong>.</p>
+      <p>I have a deep passion for <strong>IoT-based systems</strong>, building smart solutions with microcontrollers, sensors, and cloud integration. I also enjoy creating responsive web applications and insightful data dashboards.</p>
+      <p>Currently advancing my full-stack development skills at <strong>NxtWave's CCBP 4.0 Academy</strong> with Industry's first IRC 4.0 certification. I love solving real-world problems through technology.</p>
+      <p>Beyond tech, I'm a <strong>published anthology writer</strong> and an active <strong>IEEE member</strong> — always curious, always learning.</p>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-card">
+        <h4>📡 IoT Development</h4>
+        <p>Built smart IoT products using microcontrollers, sensors & cloud integration</p>
+      </div>
+      <div class="highlight-card">
+        <h4>🌐 Web Development</h4>
+        <p>Responsive websites with HTML, CSS, JavaScript — forms, nav pages & templates</p>
+      </div>
+      <div class="highlight-card">
+        <h4>📊 Data Visualization</h4>
+        <p>Power BI dashboards for sales analytics and business reporting</p>
+      </div>
+      <div class="highlight-card">
+        <h4>🤖 AI & ML</h4>
+        <p>Hands-on experience with AI-ML fundamentals and practical applications</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal">
+    <div class="section-label">What I Know</div>
+    <div class="section-title">Technical <span>Skills</span></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-category reveal">
+      <div class="skill-category-icon">💻</div>
+      <h3>Web Development</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Responsive Design</span>
+        <span class="skill-tag">Bootstrap</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-category-icon">📡</div>
+      <h3>IoT & Hardware</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Microcontrollers</span>
+        <span class="skill-tag">Sensors</span>
+        <span class="skill-tag">Cloud Integration</span>
+        <span class="skill-tag">KiCAD</span>
+        <span class="skill-tag">Circuit Design</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-category-icon">📊</div>
+      <h3>Data & Analytics</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Dashboard Design</span>
+        <span class="skill-tag">Reports</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-category-icon">🐍</div>
+      <h3>Programming</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">AI-ML Basics</span>
+        <span class="skill-tag">Full-Stack Dev</span>
+        <span class="skill-tag">CCBP 4.0</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-category-icon">🛠️</div>
+      <h3>Tools & Platforms</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Web Design</span>
+        <span class="skill-tag">Public Speaking</span>
+      </div>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-category-icon">🌟</div>
+      <h3>Soft Skills</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Team Work</span>
+        <span class="skill-tag">Communication</span>
+        <span class="skill-tag">Poetry Writing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="reveal">
+    <div class="section-label">Work History</div>
+    <div class="section-title">My <span>Experience</span></div>
+  </div>
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Intern Trainee Engineer</div>
+            <div class="timeline-company">Turnon</div>
+          </div>
+          <div class="timeline-date">Feb 2026 – Mar 2026</div>
+        </div>
+        <p class="timeline-desc">On-site engineering internship in Erode, Tamil Nadu. Gained hands-on experience in electronics engineering and real-world product development.</p>
+        <span class="timeline-skill-tag">Electronics Engineering</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Internship Trainee — Web Development</div>
+            <div class="timeline-company">Heal Bharat Digital Bharat</div>
+          </div>
+          <div class="timeline-date">Apr 2025 – May 2025</div>
+        </div>
+        <p class="timeline-desc">Built responsive web pages and interactive UI components using HTML, CSS, and JavaScript as part of a remote web development internship.</p>
+        <span class="timeline-skill-tag">Web Development</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Internship Trainee — AI & ML</div>
+            <div class="timeline-company">EduSkills Foundation®</div>
+          </div>
+          <div class="timeline-date">Apr 2025</div>
+        </div>
+        <p class="timeline-desc">Completed hands-on AI-ML training covering machine learning fundamentals and practical AI applications in a remote internship setting.</p>
+        <span class="timeline-skill-tag">AI / ML</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-role">Internship Trainee — Data Analytics</div>
+            <div class="timeline-company">Cognifyz Technologies</div>
+          </div>
+          <div class="timeline-date">Jul 2024 – Aug 2024</div>
+        </div>
+        <p class="timeline-desc">Created Power BI dashboards and sales reports to visualize and analyze business data, helping stakeholders make data-driven decisions.</p>
+        <span class="timeline-skill-tag">Microsoft Power BI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="reveal">
+    <div class="section-label">Academic Background</div>
+    <div class="section-title">My <span>Education</span></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-degree">B.E (Hons) — Electronics & Communication Engineering</div>
+      <div class="edu-school">K.S.Rangasamy College of Technology</div>
+      <div class="edu-year">Nov 2022 – May 2026</div>
+      <span class="edu-grade">🏆 9.24 CGPA</span>
+      <div style="margin-top:0.8rem">
+        <span class="skill-tag" style="font-size:0.75rem">KiCAD</span>
+        <span class="skill-tag" style="font-size:0.75rem">Web Design</span>
+        <span class="skill-tag" style="font-size:0.75rem">+4 skills</span>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">HSC — Higher Secondary Certificate</div>
+      <div class="edu-school">Government Girls Higher Secondary School, Namakkal</div>
+      <div class="edu-year">Completed HSC</div>
+      <span class="edu-grade">83%</span>
+      <div style="margin-top:0.8rem">
+        <span class="skill-tag" style="font-size:0.75rem">Poetry Writing</span>
+        <span class="skill-tag" style="font-size:0.75rem">Public Speaking</span>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">SSLC — Secondary School Leaving Certificate</div>
+      <div class="edu-school">Bharathi Vidhyalaya Matriculation Higher Secondary School</div>
+      <div class="edu-year">Completed SSLC</div>
+      <span class="edu-grade">80%</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements" id="achievements">
+  <div class="reveal">
+    <div class="section-label">Honours & Certifications</div>
+    <div class="section-title">Achievements & <span>Recognition</span></div>
+  </div>
+  <div class="achievements-grid">
+
+    <div class="achievement-card gold reveal">
+      <div class="achievement-icon">🏆</div>
+      <div class="achievement-body">
+        <h4>All Rounder Award</h4>
+        <p>Awarded by KSRCT ECE Department for excellence in both Academics & Co-curricular Activities — Batch 2022–2026.</p>
+        <span class="achievement-tag gold-tag">Token of Appreciation</span>
+      </div>
+    </div>
+
+    <div class="achievement-card gold reveal">
+      <div class="achievement-icon">🥈</div>
+      <div class="achievement-body">
+        <h4>2nd Prize — Poster Presentation</h4>
+        <p>Secured 2nd place in Poster Presentation at the Women's Day Celebration 2024, organized by the ECE Department, KSRCT.</p>
+        <span class="achievement-tag gold-tag">Women's Day 2024</span>
+      </div>
+    </div>
+
+    <div class="achievement-card blue reveal">
+      <div class="achievement-icon">📄</div>
+      <div class="achievement-body">
+        <h4>Conference Paper Presentation</h4>
+        <p>Presented paper on <strong>"Equipment Access Control System"</strong> at DAKSHAA T25 — National Conference on Innovations in Science, Technology, Engineering, Mathematics & Medicine (March 2025).</p>
+        <span class="achievement-tag">DAKSHAA T25 · ABB Partner</span>
+      </div>
+    </div>
+
+    <div class="achievement-card teal reveal">
+      <div class="achievement-icon">🏛️</div>
+      <div class="achievement-body">
+        <h4>IEEE MAS SIGHT Hub Summit</h4>
+        <p>Participated in IEEE MAS SIGHT Hub Summit organized by IEEE SIGHT Madras Section AG, hosted at Thiagarajar College of Engineering, Madurai (Feb 2025).</p>
+        <span class="achievement-tag">IEEE · Feb 2025</span>
+      </div>
+    </div>
+
+    <div class="achievement-card blue reveal">
+      <div class="achievement-icon">🎤</div>
+      <div class="achievement-body">
+        <h4>District-Level Speech Competition</h4>
+        <p>Participated in a speech competition organized by the Marumalarchi Dravida Munnetra Kazhagam — Namakkal District level event (Aug 2024).</p>
+        <span class="achievement-tag">Public Speaking · District Level</span>
+      </div>
+    </div>
+
+    <div class="achievement-card teal reveal">
+      <div class="achievement-icon">✍️</div>
+      <div class="achievement-body">
+        <h4>Published Anthology Writer</h4>
+        <p>Published writer contributing to literary anthologies. Passionate about poetry and creative writing alongside a technical career.</p>
+        <span class="achievement-tag">Published Author</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="section-label">Let's Talk</div>
+    <div class="section-title">Get In <span>Touch</span></div>
+    <p class="contact-sub">I'm actively looking for opportunities in Software Development, IoT, or Data Analytics. Let's connect!</p>
+    <div class="contact-links">
+      <a href="mailto:madhumithas1366@gmail.com" class="contact-link">📧 madhumithas1366@gmail.com</a>
+      <a href="tel:+919626993968" class="contact-link">📞 +91 96269 93968</a>
+      <a href="https://github.com/Madhumitha1366" target="_blank" class="contact-link">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/madhumitha-s-b83911259" target="_blank" class="contact-link">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Madhumitha S · Designed with 💙 · Open to Work</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
